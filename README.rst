@@ -127,6 +127,8 @@ Mapit access
 Mapit has read-only access, and the API does not adhere to REST standards.
 The default Mapit instance is the global mapit, at http://global.mapit.mysociety.org/.
 
+.. code-block:: python
+
     mapit = Mapit()
 
     point = '12.5042,41.8981'
