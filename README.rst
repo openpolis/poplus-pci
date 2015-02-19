@@ -14,12 +14,12 @@ poplus-pci is available as a module on PyPi, to install, simply run::
 
     pip install poplus-pci
 
-Alternatively, clone this repo and install as you see fit.
+Alternatively, you can clone this repo and install as you see fit.
 
-How do I use this when I want to...
------------------------------------
+How do I ...
+------------
 
-First, you'll need to get to bind to a component.
+First, you'll need to bind to a component.
 
 Let's try Popit at first.
 
