@@ -24,7 +24,9 @@ Quick start
 -----------
 
 First, let's try read-only access to the ``legisladores-ar`` instance of Popit at mySociety,
-and get the paged list of political organizations in the argentinian parliament::
+and get the paged list of political organizations in the argentinian parliament:
+
+.. code-block:: python
 
     from pci import Popit
 
@@ -36,7 +38,9 @@ and get the paged list of political organizations in the argentinian parliament:
 * ``instance`` Name of the instance you want to point to. There can be more than one for one installation.
 * ``host`` The hostname of the PopIt server.
 
-Once created an instance, it's easy to access data, using a full object oriented interface::
+Once created an instance, it's easy to access data, using a full object oriented interface:
+
+.. code-block:: python
 
     os = popit.organizations.get()
 
@@ -59,7 +63,9 @@ Once created an instance, it's easy to access data, using a full object oriented
 Write access (Popit)
 --------------------
 
-Make sure you have all the information you need. Then get the object use the `PopIt` constructor. ::
+Make sure you have all the information you need. Then get the object use the `PopIt` constructor.
+
+.. code-block:: python
 
     from pci import Popit
 
@@ -73,7 +79,10 @@ Make sure you have all the information you need. Then get the object use the `Po
   'Get API key' in the PopIt web interface for your instance, as
   `described in the documentation <http://popit.poplus.org/docs/api/#authentication>`_.
 
-Then the basic CRUD operations will be::
+Then the basic CRUD operations will be:
+
+.. code-block:: python
+
 
     # create
     einstein = popit.persons.post(data={
@@ -96,7 +105,9 @@ Then the basic CRUD operations will be::
 
 If you're still using an older PopIt instance and have not upgraded
 your account for the new, more secure authentication system, instead
-of ``api_key`` you can supply ``user`` and ``password``::
+of ``api_key`` you can supply ``user`` and ``password``:
+
+.. code-block:: python
 
     popit = Popit(
         instance='openpolistest',
@@ -116,7 +127,9 @@ Popit Search api
 
 Almost all APIs can be wrapped around the pci component, easily.
 
-Starting from a popit instance, queries through the search API can be done::
+Starting from a popit instance, queries through the search API can be done:
+
+.. code-block:: python
 
     popit.search.organizations.get(params={'q': 'trabajo'})
     popit.search.organizations.get(params={'q': 'trabajadores'})
