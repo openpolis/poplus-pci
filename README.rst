@@ -1,4 +1,5 @@
 ::
+
       _____               _
      |  __ \             | |
      | |__) |___   _ __  | | _   _  ___
@@ -23,9 +24,7 @@
 Generic Python bindings to connect to the `Poplus components <http://poplus.org/components/>`_ APIs.
 
 ----
-
-|pypi| |unix_build| |windows_build| |coverage| |downloads| |license|
-
+|pypi| |unix_build| |coverage| |downloads| |license|
 ----
 
 
@@ -224,3 +223,24 @@ Credits
 .. _tortilla: https://github.com/redodo/tortilla
 .. _popit-python: https://github.com/mysociety/popit-python
 .. _slumber: https://github.com/samgiles/slumber
+
+
+.. |pypi| image:: https://img.shields.io/pypi/v/poplus-pci.svg?style=flat-square&label=version
+    :target: https://pypi.python.org/pypi/poplus-pci
+    :alt: Latest version released on PyPi
+
+.. |coverage| image:: https://img.shields.io/coveralls/openpolis/poplus-pci/master.svg?style=flat-square
+    :target: https://coveralls.io/r/openpolis/poplus-pci?branch=master
+    :alt: Test coverage
+
+.. |unix_build| image:: https://img.shields.io/travis/openpolis/poplus-pci/master.svg?style=flat-square&label=unix%20build
+    :target: http://travis-ci.org/openpolis/poplus-pci
+    :alt: Build status of the master branch on Mac/Linux
+
+.. |downloads| image:: https://img.shields.io/pypi/dm/poplus-pci.svg?style=flat-square
+    :target: https://pypi.python.org/pypi/poplus-pci
+    :alt: Monthly downloads
+
+.. |license| image:: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
+    :target: https://raw.githubusercontent.com/openpolis/poplus-pci/master/LICENSE.txt
+    :alt: Package license
