@@ -217,9 +217,10 @@ How to run the tests
 Changelog
 ---------
 
-=== 0.1 (2015-02-20) ===
+::
 
-initial release
+    === 0.1 (2015-02-20) ===
+    initial release
 
 
 Credits
@@ -228,6 +229,9 @@ Credits
 - `tortilla`_
 - `popit-python`_
 - `slumber`_
+
+
+
 
 .. _tortilla: https://github.com/redodo/tortilla
 .. _popit-python: https://github.com/mysociety/popit-python
