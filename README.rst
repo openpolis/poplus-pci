@@ -226,7 +226,7 @@ How to run the tests
 * Install `oktest <http://www.kuwata-lab.com/oktest/>`_ (``pip install oktest``)
 * Make sure components instances are running, and you have access to them.
   You cannot test this wrapper without running instances.
-* run ``python test.py``to run all tests,
+* run ``python test.py`` to run all tests,
   ``python test_mapit.py``, or ``python test_popit.py`` to run the specified
   component's tests
 
@@ -272,5 +272,5 @@ Credits
     :alt: Monthly downloads
 
 .. |license| image:: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
-    :target: https://raw.githubusercontent.com/openpolis/poplus-pci/master/LICENSE.txt
+    :target: https://raw.githubusercontent.com/openpolis/poplus-pci/master/LICENSE
     :alt: Package license
