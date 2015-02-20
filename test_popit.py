@@ -8,7 +8,10 @@ __author__ = 'guglielmo'
 
 # load configuration
 import config_test
-keys = [x for x in dir(config_test) if x.startswith("popit__") and not x.startswith("__")]
+keys = [
+    x for x in dir(config_test)
+    if x.startswith("popit__") and not x.startswith("__")
+]
 vals = map(lambda x: eval('config_test.'+x), keys)
 keys = map(lambda x: x[7:], keys)
 conf = dict(zip(keys, vals))
@@ -224,12 +227,20 @@ class SearchTest(object):
         )
         ok(result.total) == 1
 
+
+if __name__ == '__main__':
+    import oktest
+    oktest.main()
+
 """
 # some code to test within a python shell
 
 # load configuration
 import config_test
-keys = [x for x in dir(config_test) if x.startswith("popit__") and not x.startswith("__")]
+keys = [
+    x for x in dir(config_test)
+    if x.startswith("popit__") and not x.startswith("__")
+]
 vals = map(lambda x: eval('config_test.'+x), keys)
 keys = map(lambda x: x[7:], keys)
 conf = dict(zip(keys, vals))

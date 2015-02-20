@@ -3,6 +3,7 @@ from requests import ConnectionError
 import tortilla
 from requests.auth import _basic_auth_str
 
+
 class PCI_API(object):
     """ PCI wrapper over tortilla wrapper
         over requests wrapper over API HTTP calls!
@@ -10,9 +11,11 @@ class PCI_API(object):
 
     tortilla_defaults = {
         'parent': None,
-        'params': {},            # query string params that need to be passed always
-        'headers': {},           # headers
-        'debug': None,
+        'params': {},   # query string params that need to be passed
+                        # to any requests
+        'headers': {},  # headers
+        'debug': None,  # set to True, to have requests and responses
+                        # sent to stdout at any requests
         'silent': False,
         'extension': None,
         'format': None,
@@ -26,7 +29,10 @@ class PCI_API(object):
     }
 
     def __init__(self, **args):
-        defaults = dict(self.api_defaults.items() + self.tortilla_defaults.items())
+        defaults = dict(
+            self.api_defaults.items() +
+            self.tortilla_defaults.items()
+        )
         defaults.update(args)
 
         self.__dict__.update(copy.deepcopy(defaults))
@@ -35,7 +41,7 @@ class PCI_API(object):
 
 
     def __str__(self):
-        return str(self.__url()+'/'+self.api_version)
+        return str(self.__url() + '/' + self.api_version)
 
     def __getattr__(self, key):
         return self.api.__call__(key)
@@ -60,7 +66,8 @@ class PCI_API(object):
         url = self.get_url()
         if 'api_key' in self.__dict__:
             self.headers.update({'apikey': self.api_key})
-        elif 'user' in self.__dict__ and 'password' in self.__dict__:
+        elif 'user' in self.__dict__ and \
+             'password' in self.__dict__:
             self.headers.update({
                 'Authentication': _basic_auth_str(
                     self.user, self.password
@@ -75,9 +82,7 @@ class PCI_API(object):
         return tortilla.wrap(url, **args)
 
 
-
 class Popit(PCI_API):
-
     api_defaults = {
         'instance': 'openpolistest',
         'host': 'popit.mysociety.org',
@@ -88,13 +93,15 @@ class Popit(PCI_API):
     }
 
     def get_url(self):
-        url = 'http://{self.instance}.{self.host}/api/{self.version}'.format(self=self)
+        url = 'http://{self.instance}.{self.host}/api/{self.version}'.\
+              format(self=self)
         return url
 
 
 class Mapit(PCI_API):
     api_defaults = {
         'base_endpoint': 'http://global.mapit.mysociety.org/',
+        'srid': '4326',
     }
 
     def is_online(self):
@@ -108,3 +115,20 @@ class Mapit(PCI_API):
         else:
             return True
 
+    def areas_overpoint(self, lat, lon, srid=None, box=False):
+        if srid is None:
+            srid = self.srid
+
+        path = '{0}/{1},{2}'.format(srid, lon, lat)
+        if box:
+            path = path + '/box'
+
+        return self.api.point.get(path)
+
+
+    def areas_oftype(self, type):
+        return self.api.areas.get('{0}'.format(type))
+
+
+    def areas_namestartswith(self, name):
+        return self.api.areas.get('{0}'.format(name))

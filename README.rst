@@ -35,10 +35,12 @@ and get the paged list of political organizations in the argentinian parliament:
         host='popit.mysociety.org',
     )
 
-* ``instance`` Name of the instance you want to point to. There can be more than one for one installation.
+* ``instance`` Name of the instance you want to point to.
+   There can be more than one for one installation.
 * ``host`` The hostname of the PopIt server.
 
-Once created an instance, it's easy to access data, using a full object oriented interface:
+Once an instancehas been created, it's easy enough to access data,
+using a full object oriented interface:
 
 .. code-block:: python
 
@@ -134,21 +136,27 @@ Starting from a popit instance, queries through the search API can be done:
     popit.search.organizations.get(params={'q': 'trabajo'})
     popit.search.organizations.get(params={'q': 'trabajadores'})
 
+
 Mapit access
 ------------
 
 Mapit has read-only access, and the API does not adhere to REST standards.
-The default Mapit instance is the global mapit, at http://global.mapit.mysociety.org/.
+
+The default Mapit instance is MySociety's Global Mapit:
+http://global.mapit.mysociety.org/.
+
+The mapit API call ``/point/SRID/LON,LAT/[box]``, can be invoked directly,
+by tortilla wrapping utilities, or by using Mapit helpers.
 
 .. code-block:: python
 
     mapit = Mapit()
+    self.m.point.get('4326/12.5042,41.8981')
+    self.m.areas_overpoint(lat='41.8981', lon='12.5042', srid='4326', box=True)
 
-    point = '12.5042,41.8981'
-    srid = '4326'
+Other helpers are available, and will be implemented as needed in the futures.
+You can find them in the ``pci/__init__.py`` file.
 
-    # all areas above this point (it's somewhere in Rome, Italy)
-    self.m.point.get('{0}/{1}'.format(srid, point))
 
 
 Requirements
@@ -162,9 +170,11 @@ If you don't use pip to install the module, you'll also need:
 How to run the tests
 --------------------
 
-* Copy the file ``config_example.py`` to ``config_test.py``
+* Copy the file ``config_sample.py`` to ``config_test.py``
 * Change the entries in ``config_test.py`` to refer to your test servers
 * Install `oktest <http://www.kuwata-lab.com/oktest/>`_ (``pip install oktest``)
 * Make sure components instances are running, and you have access to them.
   You cannot test this wrapper without running instances.
-* run ``python test.py``
+* run ``python test.py``to run all tests,
+  ``python test_mapit.py``, or ``python test_popit.py`` to run the specified
+  component's tests
