@@ -1,4 +1,4 @@
-VERSION = '0.5.0'
+VERSION = '0.1.4'
 
 import copy
 from requests import ConnectionError
