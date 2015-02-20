@@ -24,7 +24,9 @@
 Generic Python bindings to connect to the `Poplus components <http://poplus.org/components/>`_ APIs.
 
 ----
+
 |pypi| |unix_build| |coverage| |downloads| |license|
+
 ----
 
 
