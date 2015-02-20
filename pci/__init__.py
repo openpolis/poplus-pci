@@ -116,7 +116,7 @@ class Mapit(PCI_API):
         else:
             return True
 
-    def areas_overpoint(self, lat, lon, srid=None, box=False):
+    def areas_overpoint(self, lat, lon, srid=None, box=False, ignore_cache=False):
         if srid is None:
             srid = self.srid
 
@@ -124,12 +124,12 @@ class Mapit(PCI_API):
         if box:
             path = path + '/box'
 
-        return self.api.point.get(path)
+        return self.api.point.get(path, ignore_cache=ignore_cache)
 
 
-    def areas_oftype(self, type):
-        return self.api.areas.get('{0}'.format(type))
+    def areas_oftype(self, type, ignore_cache=False):
+        return self.api.areas.get('{0}'.format(type), ignore_cache=ignore_cache)
 
 
-    def areas_namestartswith(self, name):
-        return self.api.areas.get('{0}'.format(name))
+    def areas_namestartswith(self, name, ignore_cache=False):
+        return self.api.areas.get('{0}'.format(name), ignore_cache=ignore_cache)

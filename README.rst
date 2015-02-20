@@ -191,6 +191,23 @@ by tortilla wrapping utilities, or by using Mapit helpers.
 Other helpers are available, and will be implemented as needed in the futures.
 You can find them in the ``pci/__init__.py`` file.
 
+Caching
+-------
+
+To limit the amount of requests to an API endpoint, a caching mechanism is available.
+You can activate this with the ``cache_lifetime`` parameter, when creating a pci instance:
+
+.. code-block:: python
+
+    mapit = Mapit(
+        cache_lifetime=60,
+    )
+
+Single requests, though, can be performed ignoring the cache alltogether:
+
+.. code-block:: python
+
+    mapit.point.get('4326/12.5042,41.8981', ignore_cache=True)
 
 
 Requirements
