@@ -60,9 +60,12 @@ and get the paged list of political organizations in the argentinian parliament:
         host='popit.mysociety.org',
     )
 
-* ``instance`` Name of the instance you want to point to.
-   There can be more than one for one installation.
-* ``host`` The hostname of the PopIt server.
+``instance``
+  Name of the instance you want to point to.
+  There can be more than one for one installation.
+
+``host``
+  The hostname of the PopIt server.
 
 Once an instancehas been created, it's easy enough to access data,
 using a full object oriented interface:
@@ -102,7 +105,8 @@ Make sure you have all the information you need. Then get the object use the `Po
         api_key='-YOUR-API-KEY-',
     )
 
-* ``api_key`` This is the API key you can request by clicking
+``api_key`` 
+  This is the API key you can request by clicking
   'Get API key' in the PopIt web interface for your instance, as
   `described in the documentation <http://popit.poplus.org/docs/api/#authentication>`_.
 
@@ -144,8 +148,11 @@ of ``api_key`` you can supply ``user`` and ``password``:
     )
 
 
-* ``user`` Your username, the email address that you created the instance with
-* ``password`` The password you were emailed when creating the instance
+``user``
+  Your username, the email address that you created the instance with
+
+``password``
+  The password you were emailed when creating the instance
 
 
 
