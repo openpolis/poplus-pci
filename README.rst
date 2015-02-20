@@ -178,3 +178,23 @@ How to run the tests
 * run ``python test.py``to run all tests,
   ``python test_mapit.py``, or ``python test_popit.py`` to run the specified
   component's tests
+
+
+Changelog
+---------
+
+=== 0.1 (2015-02-20) ===
+
+initial release
+
+
+Credits
+-------
+
+- `tortilla`_
+- `popit-python`_
+- `slumber`_
+
+.. _tortilla: https://github.com/redodo/tortilla
+.. _popit-python: https://github.com/mysociety/popit-python
+.. _slumber: https://github.com/samgiles/slumber
