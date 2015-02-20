@@ -1,8 +1,9 @@
+VERSION = '0.5.0'
+
 import copy
 from requests import ConnectionError
 import tortilla
 from requests.auth import _basic_auth_str
-
 
 class PCI_API(object):
     """ PCI wrapper over tortilla wrapper
