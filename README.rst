@@ -1,7 +1,33 @@
-poplus-pci
-==========
+::
+      _____               _
+     |  __ \             | |
+     | |__) |___   _ __  | | _   _  ___
+     |  ___// _ \ | '_ \ | || | | |/ __|
+     | |   | (_) || |_) || || |_| |\__ \
+     |_|    \___/ | .__/ |_| \__,_||___/
+       _____      | |                                            _
+      / ____|     |_|                                           | |
+     | |      ___   _ __ ___   _ __    ___   _ __    ___  _ __  | |_
+     | |     / _ \ | '_ ` _ \ | '_ \  / _ \ | '_ \  / _ \| '_ \ | __|
+     | |____| (_) || | | | | || |_) || (_) || | | ||  __/| | | || |_
+      \_____|\___/ |_| |_| |_|| .__/  \___/ |_| |_| \___||_| |_| \__|
+      _____         _         | |                _    _
+     |_   _|       | |        |_|               | |  (_)
+       | |   _ __  | |_  ___   __ _  _ __  __ _ | |_  _   ___   _ __
+       | |  | '_ \ | __|/ _ \ / _` || '__|/ _` || __|| | / _ \ | '_ \
+      _| |_ | | | || |_|  __/| (_| || |  | (_| || |_ | || (_) || | | |
+     |_____||_| |_| \__|\___| \__, ||_|   \__,_| \__||_| \___/ |_| |_|
+                               __/ |
+                              |___/
 
-Generic python bindings to connect to the `Poplus components <http://poplus.org/components/>`_ APIs.
+Generic Python bindings to connect to the `Poplus components <http://poplus.org/components/>`_ APIs.
+
+----
+
+|pypi| |unix_build| |windows_build| |coverage| |downloads| |license|
+
+----
+
 
 Actually, this is only a convenient wrapper around `Tortilla <https://github.com/redodo/tortilla>`_ generic
 API wrapper, with some specialized instructions to use Poplus components apis.
