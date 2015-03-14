@@ -1,3 +1,4 @@
+import requests_mock
 from pci import Mapit
 from oktest import test, ok, NG, DIFF
 
@@ -42,7 +43,12 @@ class StatusTest(object):
 
     @test("is_online should return true")
     def _(self):
-        ok(self.m.is_online()) == True
+        with requests_mock.mock() as m:
+            m.get("{0}generations".format(self.m.base_endpoint),
+                  text='{"1": {"active": true, "description": "Initial import", "id": 1, "created": "2014-12-15T15:13:29.568"},'
+                       ' "2": {"active": true, "description": "Second generation.", "id": 2, "created": "2015-02-28T23:30:15.954"}}')
+            r = self.m.is_online()
+        ok(m.called ) == True
 
     @test("get_url should return a string")
     def _(self):
@@ -58,33 +64,31 @@ class ReadTest(object):
     def before(self):
         self.m = self.__class__.m
 
-    @test("extracts all areas over a given point")
+    @test("generations")
     def _(self):
-        lat = '41.8981'
-        lon = '12.5042'
+        with requests_mock.mock() as m:
+            m.get("{0}generations".format(self.m.base_endpoint),
+                  text='{"response": "test"}')
+            r = self.m.generations.get()
+        ok(m.called) == True
 
-        result = len(
-            self.m.areas_overpoint(lat, lon, srid='4326')
-        )
-        ok(result) == 3
-
-
-    @test("extracts all areas of a given type")
+    @test("areas")
     def _(self):
-        type = 'REG'
-        result = len(
-            self.m.areas_oftype(type)
-        )
-        ok(result) == 20
+        with requests_mock.mock() as m:
+            m.get("{0}areas/Ven?generation=2&type=REG".format(self.m.base_endpoint),
+                  text='{"response": "test"}')
+            r = self.m.areas('Ven').get(params={'type': 'REG', 'generation': '2'})
+        ok(m.called) == True
 
-
-    @test("extracts all areas having a name starting with ...")
+    @test("areas covering a point")
     def _(self):
-        name = 'Rom'
-        result = len(
-            self.m.areas_namestartswith(name)
-        )
-        ok(result) == 16
+        with requests_mock.mock() as m:
+            m.get("{0}point/4326/12.5,41.89/box".format(self.m.base_endpoint),
+                  text='{"response": "test"}')
+            r = self.m.areas(point='12.5,41.89',srid='4326',box=True).get()
+        ok(m.called) == True
+
+
 
 
 """
