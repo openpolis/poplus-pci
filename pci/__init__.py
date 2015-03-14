@@ -71,7 +71,7 @@ class PCI_API(object):
         elif 'user' in self.__dict__ and \
                         'password' in self.__dict__:
             self.headers.update({
-                'Authentication': _basic_auth_str(
+                'Authorization': _basic_auth_str(
                     self.user, self.password
                 )
             })
@@ -159,7 +159,7 @@ class Mapit(PCI_API):
             # is the closest thing to a protocol ping
             # for the Mapit API
             self.api.generations.get()
-        except ConnectionError, e:
+        except ConnectionError as e:
             return False
         else:
             return True
