@@ -59,7 +59,7 @@ class PCI_API(object):
         try:
             # protocol ping
             self.api.get()
-        except ConnectionError, e:
+        except ConnectionError as e:
             return False
         else:
             return True
