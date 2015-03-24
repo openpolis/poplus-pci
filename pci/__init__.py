@@ -31,10 +31,9 @@ class PCI_API(object):
     }
 
     def __init__(self, **args):
-        defaults = dict(
-            self.api_defaults.items() +
-            self.tortilla_defaults.items()
-        )
+        defaults = {}
+        defaults.update(self.api_defaults.items())
+        defaults.update(self.tortilla_defaults.items())
         defaults.update(args)
 
         self.__dict__.update(copy.deepcopy(defaults))
