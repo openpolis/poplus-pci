@@ -65,10 +65,11 @@ class PCI_API(object):
 
     def __tortilla_api(self):
         url = self.get_url()
-        if 'api_key' in self.__dict__:
+        if 'api_key' in self.__dict__ and self.api_key:
             self.headers.update({'apikey': self.api_key})
-        elif 'user' in self.__dict__ and \
-                        'password' in self.__dict__:
+        if 'user' in self.__dict__ and \
+            'password' in self.__dict__ and \
+            self.user and self.password:
             self.headers.update({
                 'Authorization': _basic_auth_str(
                     self.user, self.password
